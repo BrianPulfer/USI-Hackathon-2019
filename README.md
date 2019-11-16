@@ -1,6 +1,8 @@
 # USI-Hackathon-2019
 
-USI Hackathon project's repository.
+The project developed during the hackathon is a smart bin able to recognize the types of trash being thrown. In particular, the trash bin is able to tell whether what is being thrown is plastic (PET), aluminum, paper or other.
+
+Such trash bins could help the city of Lugano to increase the number of recycled paper aluminum and PET, seen how many recyclable items are still thrown in the regular trash bin.
 
 
 ## Hackathon
