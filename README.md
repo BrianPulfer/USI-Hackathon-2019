@@ -9,7 +9,7 @@ Such trash bins could help the city of Lugano to increase the number of recycled
 The USI Hackathon took place from November 15th to November 17th 2019 in USI (Università della Svizzera Italiana).
 
 ## Group
-The group's name is  and the members are Michael Mazourik, Rwiddhi Chakraborty, Shubhayu Das and Brian Pulfer.
+The group's name is Mrs. B (inspirated by the members first names initials) and the members are Michael Mazourik, Rwiddhi Chakraborty, Shubhayu Das and Brian Pulfer.
 
 ## Dataset
 The dataset provided was given for the duration of the hackathon and is not publishable by the partecipants.
