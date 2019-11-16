@@ -21,10 +21,24 @@
                             <button type="button" id='recordbutton' onclick="init()"></button>
                             <button type="button" id="classifybutton" onclick="classify()">Classify my trash!</button>
                             <div id="label-container"></div>
+
+                            
                             <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
                             <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
-                            
-                            
+                    </div>
+                    <div id="confidenceBars">
+                        <div id="rcb" class="confidencebar">
+                            <img src="./img/trash.png" class="cbimg" style="position: absolute; left: 78px; height: 50px;">
+                        </div>
+                        <div id="pcb" class="confidencebar">
+                            <img src="./img/pet.png" class="cbimg" style="position: absolute; left: 90px; height: 50px;">
+                        </div>
+                        <div id="acb" class="confidencebar">
+                            <img src="./img/can.png" class="cbimg" style="position: absolute; left: 75px; height: 50px;">
+                        </div>
+                        <div id="ccb" class="confidencebar">
+                            <img src="./img/paper.png" class="cbimg" style="position: absolute; left: 70px; height: 50px;">
+                        </div>
                     </div>
                 
                 </div>
