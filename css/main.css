@@ -1,0 +1,88 @@
+#trashbins{
+    margin-top: 100px;
+    margin-left: 300px;
+}
+
+#trashbins .bin{
+    width: 200px;
+    height: 400px;
+    float: left;
+
+    border: 5px solid black;
+    border-top: none;
+    margin: 1px;
+}
+
+#trashbins .bintop{
+    border-top: 5px solid black;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+
+    border-radius: 0px 50px 0px 0px;
+}
+
+#trashbins .binlabel{
+    font-family: Moon;
+    align-content: center;
+    text-align: center;
+    font-size: 30px;
+
+    margin-top: 20px;
+
+}
+
+#trashbins #rifiuti{
+    background-color: grey;
+}
+
+#trashbins #pet{
+    background-color: lightblue;
+}
+
+#trashbins #alu{
+    background-color: green;
+}
+
+#trashbins #carta{
+    background-color: yellow;
+}
+
+.openingbin{
+    animation: opening 2s forwards;
+
+}
+
+.closingbin{
+    animation: closing 2s forwards;
+
+}
+
+@keyframes opening{
+    0%  {
+        transform-origin: top left;
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform-origin: top left;
+        transform: rotate(-20deg);
+    }
+}
+
+@keyframes closing{
+    0%  {
+        transform-origin: top left;
+        transform: rotate(-20deg);
+    }
+
+    100% {
+        transform-origin: top left;
+        transform: rotate(0deg);
+    }
+}
+
+@font-face{
+    font-family: Moon;
+    src: url(./../fonts/moontypeface-free-font/Moon\ Light.otf);
+}
