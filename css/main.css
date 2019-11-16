@@ -1,11 +1,12 @@
 body{
     font-family: Moon;
+    background: url(/img/background2.png);
+    
 }
 
 
 body::after {
     content: "";
-    background: url(/img/background2.png);
     opacity: 1;
     top: 0;
     left: 0;
@@ -13,7 +14,7 @@ body::after {
     right: 0;
     position: absolute;
     z-index: -1;   
-  }
+}
 
 /* General UX Improvements, Just Cosmetic */
 
@@ -107,6 +108,42 @@ img.bintoppic{
     animation: closing 2s forwards;
 }
 
+
+/*Confidence bars related styles*/
+.confidencebar{
+    margin-left: 78px;
+    width: 400px;
+    height: 50px;
+    border: 2px solid white;
+    border-radius: 0 5px 5px 0;
+}
+
+#confidenceBars{
+    margin-top: 50px;
+}
+
+.cbimg{
+    height: 50px;
+    position: absolute;
+    left: 20%;
+}
+
+#rcb{
+    background-color: grey;
+}
+
+#pcb{
+    background-color: lightblue;
+}
+
+#acb{
+    background-color: green;
+}
+
+#ccb{
+    background-color: yellow;
+}
+
 @keyframes opening{
     0%{
         transform: translate(0px, 0px);
@@ -140,8 +177,8 @@ img.bintoppic{
 
 #webcam-container{
     background: black;
-    height: 540px;
-    width: 540px;
+    height: 400px;
+    width: 400px;
     display: block;
     margin: auto;
     margin-bottom: 30px;

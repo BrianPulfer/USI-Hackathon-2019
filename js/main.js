@@ -10,6 +10,7 @@ let model, webcam, labelContainer, maxPredictions;
 let predictionArray = [[], [], [], []];
 let recording = false;
 
+let confidenceBars = document.getElementsByClassName('confidencebar');
 
 function classify(){
     recording = true;
@@ -47,7 +48,7 @@ function classify(){
 }
 
 function manageBins(index){
-    let bintopsimages = document.getElementsByTagName('img');
+    let bintopsimages = document.getElementsByClassName('bintoppic');
     
     if(bintopsimages[index].classList.contains('closingbin')){
       bintopsimages[index].classList.remove('closingbin')
@@ -56,7 +57,7 @@ function manageBins(index){
 }
 
 function closeBins(){
-    let bintopsimages = document.getElementsByTagName('img');
+    let bintopsimages = document.getElementsByClassName('bintoppic');
 
     for(let i = 0; i<bintopsimages.length; i++){
         if(bintopsimages[i].classList.contains('openingbin')){
@@ -80,18 +81,21 @@ async function init() {
 
   // Convenience function to setup a webcam
   const flip = true; // whether to flip the webcam
-  webcam = new tmImage.Webcam(540, 540, flip); // width, height, flip
+  webcam = new tmImage.Webcam(400, 400, flip); // width, height, flip
   await webcam.setup(); // request access to the webcam
   await webcam.play();
   window.requestAnimationFrame(loop);
 
   // append elements to the DOM
   document.getElementById("webcam-container").appendChild(webcam.canvas);
+
+  /*
   labelContainer = document.getElementById("label-container");
   for (let i = 0; i < maxPredictions; i++) {
     // and class labels
     labelContainer.appendChild(document.createElement("div"));
   }
+  */
 }
 
 async function loop() {
@@ -107,7 +111,12 @@ async function predict() {
   for (let i = 0; i < maxPredictions; i++) {
     const classPrediction =
       prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-    labelContainer.childNodes[i].innerHTML = classPrediction;
+    //labelContainer.childNodes[i].innerHTML = classPrediction;
+
+    let confidence = parseFloat(prediction[i].probability.toFixed(2));
+    let newWidth = Math.max(confidence*400, 70)
+
+    confidenceBars[i].style.width = newWidth+"px";
 
     if(recording){
         predictionArray[i].push(parseFloat(prediction[i].probability.toFixed(2)));
