@@ -4,7 +4,8 @@
 // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 
 // the link to your model provided by Teachable Machine export panel
-const URL = "https://teachablemachine.withgoogle.com/models/vF-sPGy3/";
+//const URL = "https://teachablemachine.withgoogle.com/models/vF-sPGy3/";     OLD MODEL
+const URL = "https://teachablemachine.withgoogle.com/models/CIwB69uK/";
 
 let model, webcam, labelContainer, maxPredictions;
 let predictionArray = [[], [], [], []];
@@ -48,12 +49,16 @@ function classify(){
 }
 
 function manageBins(index){
-    let bintopsimages = document.getElementsByClassName('bintoppic');
-    
-    if(bintopsimages[index].classList.contains('closingbin')){
-      bintopsimages[index].classList.remove('closingbin')
-    }
-    bintopsimages[index].classList.add('openingbin');
+    if(index == 4){
+      batteriesDetected();
+    } else {
+      let bintopsimages = document.getElementsByClassName('bintoppic');
+      
+      if(bintopsimages[index].classList.contains('closingbin')){
+        bintopsimages[index].classList.remove('closingbin')
+      }
+      bintopsimages[index].classList.add('openingbin');
+  }
 }
 
 function closeBins(){
@@ -122,6 +127,18 @@ async function predict() {
         predictionArray[i].push(parseFloat(prediction[i].probability.toFixed(2)));
     }
   }
+}
+
+function batteriesDetected(){
+  let oldDisplay = document.getElementById("trashbins").style.display;
+
+  document.getElementById("trashbins").style.display = "none";
+  document.getElementById("indications").style.display = "inline";
+  
+  setTimeout(()=>{
+    document.getElementById("indications").style.display = "none";
+    document.getElementById("trashbins").style.display = oldDisplay;
+  }, 10000);
 }
 
 let rbtn = document.getElementById('recordbutton');

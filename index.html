@@ -1,87 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Smart bin</title>
 
-    <link rel="stylesheet" href="./css/main.css">
-</head>
-<body>
-        <div id="main">
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <div id="main">
+      <div id="leftside">
+        <div id="description">
+          <h1>Mrs. B</h1>
+          <h5>
+            A total of 2.6 million tonnes (that’s 190 kilos per person) of food
+            waste is produced in Switzerland each year.
+          </h5>
+        </div>
+        <div id="tensorflowjs">
+          <div id="webcam-container"></div>
+          <button type="button" id="recordbutton" onclick="init()"></button>
+          <button type="button" id="classifybutton" onclick="classify()">
+            Classify my trash!
+          </button>
+          <div id="label-container"></div>
 
-                <div id="leftside">
-                    <div id="description">
-                        <h1>Mrs. B</h1>
-                        <h5>A total of 2.6 million tonnes (that’s 190 kilos per person) of food waste is produced in Switzerland each year.</h5>
-                    </div>
-                    <div id="tensorflowjs">            
-                            <div id="webcam-container"></div>
-                            <button type="button" id='recordbutton' onclick="init()"></button>
-                            <button type="button" id="classifybutton" onclick="classify()">Classify my trash!</button>
-                            <div id="label-container"></div>
+          <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+        </div>
+        <div id="confidenceBars">
+          <div id="rcb" class="confidencebar">
+            <img
+              src="./img/trash.png"
+              class="cbimg"
+              style="position: absolute; left: 78px; height: 50px;"
+            />
+          </div>
+          <div id="pcb" class="confidencebar">
+            <img
+              src="./img/pet.png"
+              class="cbimg"
+              style="position: absolute; left: 90px; height: 50px;"
+            />
+          </div>
+          <div id="acb" class="confidencebar">
+            <img
+              src="./img/can.png"
+              class="cbimg"
+              style="position: absolute; left: 75px; height: 50px;"
+            />
+          </div>
+          <div id="ccb" class="confidencebar">
+            <img
+              src="./img/paper.png"
+              class="cbimg"
+              style="position: absolute; left: 70px; height: 50px;"
+            />
+          </div>
+        </div>
+      </div>
 
-                            
-                            <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
-                            <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
-                    </div>
-                    <div id="confidenceBars">
-                        <div id="rcb" class="confidencebar">
-                            <img src="./img/trash.png" class="cbimg" style="position: absolute; left: 78px; height: 50px;">
-                        </div>
-                        <div id="pcb" class="confidencebar">
-                            <img src="./img/pet.png" class="cbimg" style="position: absolute; left: 90px; height: 50px;">
-                        </div>
-                        <div id="acb" class="confidencebar">
-                            <img src="./img/can.png" class="cbimg" style="position: absolute; left: 75px; height: 50px;">
-                        </div>
-                        <div id="ccb" class="confidencebar">
-                            <img src="./img/paper.png" class="cbimg" style="position: absolute; left: 70px; height: 50px;">
-                        </div>
-                    </div>
-                
-                </div>
-                
-                <div id="rightside">
-                    <h1>Trash Bins</h1>
-                    <div id="trashbins">
-                            <div id="rifiuti" class="bin">
-                                <div class="bintop">
-                                    <img src="./img/trashbin.png" class="bintoppic">
-                                </div>
-                                <div class="binlabel">Rifiuti</div>
-                            </div>
-                    
-                            <div id="pet" class="bin">
-                                <div class="bintop">
-                                    <img src="./img/trashbin.png" class="bintoppic">
-                                </div>
-                                <div class="binlabel">Pet</div>
-                            </div>
-                    
-                            <div id="alu" class="bin">
-                                <div class="bintop">
-                                    <img src="./img/trashbin.png" class="bintoppic">
-                                </div>
-                                <div class="binlabel">Alu</div>
-                            </div>
-                    
-                            <div id="carta" class="bin">
-                                <div class="bintop">
-                                    <img src="./img/trashbin.png" class="bintoppic">
-                                </div>
-                                <div class="binlabel">Carta</div>
-                            </div>
-                        </div>
-                </div>
-                
-                </div>
-    
-    
+      <div id="rightside">
+        <h1>Trash Bins</h1>
+        <div id="trashbins">
+          <div id="rifiuti" class="bin">
+            <div class="bintop">
+              <img src="./img/trashbin.png" class="bintoppic" />
+            </div>
+            <div class="binlabel">Rifiuti</div>
+          </div>
 
+          <div id="pet" class="bin">
+            <div class="bintop">
+              <img src="./img/trashbin.png" class="bintoppic" />
+            </div>
+            <div class="binlabel">Pet</div>
+          </div>
 
-    <script src="https://kit.fontawesome.com/f943e90402.js" crossorigin="anonymous"></script>
+          <div id="alu" class="bin">
+            <div class="bintop">
+              <img src="./img/trashbin.png" class="bintoppic" />
+            </div>
+            <div class="binlabel">Alu</div>
+          </div>
+
+          <div id="carta" class="bin">
+            <div class="bintop">
+              <img src="./img/trashbin.png" class="bintoppic" />
+            </div>
+            <div class="binlabel">Carta</div>
+          </div>
+        </div>
+
+        <div id="indications" style="position: absolute; z-index: 99; left: 1100px; top: 300px; display: none;">
+            <div id="indicationsMessage">
+                <p id="indicationParagraph">You need to move here</p>
+            </div>
+            <div id="qrcode">
+                <img src="./img/QRStation.png" alt="">
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/f943e90402.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="./js/main.js"></script>
-</body>
+  </body>
 </html>
