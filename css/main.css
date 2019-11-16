@@ -16,12 +16,16 @@
 }
 
 #trashbins .bintop{
-    border-top: 5px solid black;
-    border-bottom: none;
-    border-left: none;
-    border-right: none;
+    border: none;
+    position: relative;
+}
 
-    border-radius: 0px 50px 0px 0px;
+img.bintoppic{
+    width: 200px;
+    position: absolute;
+    clip: rect(0, 180px, 40px, 0);
+    left: -25px;
+    top: -40px;
 }
 
 #trashbins .binlabel{
@@ -52,35 +56,29 @@
 
 .openingbin{
     animation: opening 2s forwards;
-
 }
 
 .closingbin{
     animation: closing 2s forwards;
-
 }
 
 @keyframes opening{
-    0%  {
-        transform-origin: top left;
-        transform: rotate(0deg);
+    0%{
+        transform: translate(0px, 0px);
     }
-
+    
     100% {
-        transform-origin: top left;
-        transform: rotate(-20deg);
+        transform: translate(0px, -50px);
     }
 }
 
 @keyframes closing{
-    0%  {
-        transform-origin: top left;
-        transform: rotate(-20deg);
+    0%{
+        transform: translate(0px, -50px);
     }
 
     100% {
-        transform-origin: top left;
-        transform: rotate(0deg);
+        transform: translate(0px, 0px);
     }
 }
 
