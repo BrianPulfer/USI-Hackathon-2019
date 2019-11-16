@@ -189,3 +189,18 @@ img.bintoppic{
 #leftside{
     position: relative;
 }
+
+
+.fa-3x{
+    margin-top: 40px;
+}
+
+#locations select{
+    display: block;
+    width: 300px;
+    position: absolute ;
+    margin: auto;
+    right: 10px;
+    bottom: 10px;
+    border: black;
+}
