@@ -48,6 +48,10 @@ function classify(){
 
 function manageBins(index){
     let bintopsimages = document.getElementsByTagName('img');
+    
+    if(bintopsimages[index].classList.contains('closingbin')){
+      bintopsimages[index].classList.remove('closingbin')
+    }
     bintopsimages[index].classList.add('openingbin');
 }
 
