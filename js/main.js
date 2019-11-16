@@ -19,8 +19,6 @@ function classify(){
         recording = false;
         let finalPredictions = [0, 0, 0, 0]
 
-        console.log(predictionArray);
-
         for(let i = 0; i < predictionArray.length; i++){
             for(let j = 0; j < predictionArray[i].length; j++){
                 finalPredictions[i] += predictionArray[i][j];
@@ -36,8 +34,6 @@ function classify(){
             }
         }
 
-        console.log(finalPredictions);
-        console.log("Index: "+maxIndex);
         manageBins(maxIndex);
     }, 3000);
 
@@ -52,7 +48,6 @@ function classify(){
 
 function manageBins(index){
     let bintopsimages = document.getElementsByTagName('img');
-    console.log(bintopsimages);
     bintopsimages[index].classList.add('openingbin');
 }
 
