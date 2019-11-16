@@ -1,6 +1,6 @@
 body{
     font-family: Moon;
-    background: url(/img/background2.png);
+    background: url(/img/background4.png);
     
 }
 
@@ -63,7 +63,7 @@ body::after {
 
 
 #trashbins .bintop{
-    border: none;
+    border-top: 2px dashed grey;
     position: relative;
 }
 
