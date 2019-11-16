@@ -1,10 +1,12 @@
 #trashbins{
-    margin-top: 100px;
-    margin-left: 300px;
+    display: block;
+    margin:auto;
+    margin-left: 20%;
+    margin-top: 10%;
 }
 
 #trashbins .bin{
-    width: 200px;
+    width: 150px;
     height: 400px;
     float: left;
 
@@ -85,4 +87,23 @@
 @font-face{
     font-family: Moon;
     src: url(./../fonts/moontypeface-free-font/Moon\ Light.otf);
+}
+
+#main{
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+#webcam-container{
+    background: black;
+    height: 400px;
+    width: 400px;
+    display: block;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+#leftside{
+    position: relative;
 }
