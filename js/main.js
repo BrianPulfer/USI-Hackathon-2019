@@ -131,9 +131,10 @@ async function predict() {
 
 function batteriesDetected(){
   let oldDisplay = document.getElementById("trashbins").style.display;
-
+  document.getElementById('address').innerHTML='ECOPUNTO, <br> Piazza Molino Nuovo, <br> 6900 Lugano'
+  document.getElementById('address').innerHTML='ECOPUNTO, <br> Via Basilea, <br> 6900 Lugano'
   document.getElementById("trashbins").style.display = "none";
-  document.getElementById("indications").style.display = "inline";
+  document.getElementById("indications").style.display = "grid";
   
   setTimeout(()=>{
     document.getElementById("indications").style.display = "none";
