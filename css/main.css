@@ -1,19 +1,65 @@
+body{
+    font-family: Moon;
+}
+
+
+body::after {
+    content: "";
+    background: url(/img/background2.png);
+    opacity: 1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+  }
+
+/* General UX Improvements, Just Cosmetic */
+
+#description{
+    width: 350px;
+    display: block;
+    margin: auto;
+}
+
+#description h1{
+    text-decoration: underline;
+}
+
+#classifybutton{
+    background: none;
+    border: white;
+    border: 1px solid black;
+    padding: 20px;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+#classifybutton:hover{
+    border: 2px white solid;
+    background: rgba(0,0,0,0.2);
+    color: white;
+    cursor: pointer;
+}
+
 #trashbins{
     display: block;
     margin:auto;
-    margin-left: 20%;
-    margin-top: 10%;
+    margin-left: 200px;
+    margin-top: 200px;
 }
 
 #trashbins .bin{
     width: 150px;
     height: 400px;
     float: left;
-
-    border: 5px solid black;
+    border: 3px solid rgba(0,0,0,0.8);
     border-top: none;
     margin: 1px;
+    position: relative;
 }
+
 
 #trashbins .bintop{
     border: none;
@@ -33,25 +79,24 @@ img.bintoppic{
     align-content: center;
     text-align: center;
     font-size: 30px;
-
     margin-top: 20px;
 
 }
 
 #trashbins #rifiuti{
-    background-color: grey;
+    background-color: rgba(128,128,128,0.4);
 }
 
 #trashbins #pet{
-    background-color: lightblue;
+    background-color: rgb(173,216,230,0.5);
 }
 
 #trashbins #alu{
-    background-color: green;
+    background-color: rgba(0,128,0,0.6);
 }
 
 #trashbins #carta{
-    background-color: yellow;
+    background-color: rgba(255,255,0,0.7);
 }
 
 .openingbin{
@@ -90,16 +135,18 @@ img.bintoppic{
 #main{
     text-align: center;
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 2fr 3fr;
 }
 
 #webcam-container{
     background: black;
-    height: 400px;
-    width: 400px;
+    height: 540px;
+    width: 540px;
     display: block;
     margin: auto;
     margin-bottom: 30px;
+    border: 1px solid black;
+    border-radius: 4px;
 }
 
 #leftside{
