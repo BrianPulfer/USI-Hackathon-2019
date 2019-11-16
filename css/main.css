@@ -53,7 +53,7 @@ body::after {
 
 #trashbins .bin{
     width: 150px;
-    height: 400px;
+    height: 300px;
     float: left;
     border: 3px solid rgba(0,0,0,0.8);
     border-top: none;
@@ -188,4 +188,19 @@ img.bintoppic{
 
 #leftside{
     position: relative;
+}
+
+
+.fa-3x{
+    margin-top: 40px;
+}
+
+#locations select{
+    display: block;
+    width: 300px;
+    position: absolute ;
+    margin: auto;
+    right: 10px;
+    bottom: 10px;
+    border: black;
 }
