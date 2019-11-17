@@ -16,6 +16,13 @@ body::after {
     z-index: -1;   
 }
 
+select{
+    width: 200px;
+    height: 50px;
+    font-size: large;
+    font-family: Moon;
+}
+
 /* General UX Improvements, Just Cosmetic */
 
 #description{
@@ -39,7 +46,7 @@ body::after {
 }
 
 #classifybutton:hover{
-    border: 2px white solid;
+    border: 1px white solid;
     background: rgba(0,0,0,0.2);
     color: white;
     cursor: pointer;
