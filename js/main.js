@@ -16,6 +16,9 @@ let recording = false;
 let confidenceBars = document.getElementsByClassName('confidencebar');
 
 function classify(){
+    if(recording){
+      return ;
+    }
     recording = true;
     predictionArray = [[], [], [], [], []];
 
@@ -71,6 +74,10 @@ function closeBins(){
     let bintopsimages = document.getElementsByClassName('bintoppic');
 
     for(let i = 0; i<bintopsimages.length; i++){
+        if(bintopsimages[i].classList.contains('closingbin')){
+          bintopsimages[i].classList.remove('closingbin')
+        }
+
         if(bintopsimages[i].classList.contains('openingbin')){
             bintopsimages[i].classList.remove('openingbin');
             bintopsimages[i].classList.add('closingbin');
@@ -143,8 +150,6 @@ function batteriesDetected(){
   let locationselect = document.getElementById("locationselect");
   let location = locationselect.value;
 
-  console.log(location)
-
   if(location.includes("SBB")){
     document.getElementById('address').innerHTML='ECOPUNTO, <br> Via Basilea, <br> 6900 Lugano';
     document.getElementById('qrcodeimg').src = "./../img/QRStation.png";
@@ -152,6 +157,7 @@ function batteriesDetected(){
     document.getElementById('address').innerHTML='ECOPUNTO, <br> Piazza Molino Nuovo, <br> 6900 Lugano';
     document.getElementById('qrcodeimg').src = "./../img/QRUSI.png";
   }
+
   document.getElementById("trashbins").style.display = "none";
   document.getElementById("indications").style.display = "grid";
   
