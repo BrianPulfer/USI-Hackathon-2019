@@ -19,9 +19,13 @@ function classify(){
     recording = true;
     predictionArray = [[], [], [], [], []];
 
+    document.getElementById('recordingled').classList.add('flashingred');
+
     setTimeout(()=>{
         recording = false;
         let finalPredictions = [0, 0, 0, 0, 0]
+
+        document.getElementById('recordingled').classList.remove('flashingred');
 
         for(let i = 0; i < predictionArray.length; i++){
             for(let j = 0; j < predictionArray[i].length; j++){
