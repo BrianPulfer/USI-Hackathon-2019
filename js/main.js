@@ -4,22 +4,24 @@
 // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 
 // the link to your model provided by Teachable Machine export panel
-//const URL = "https://teachablemachine.withgoogle.com/models/vF-sPGy3/";     OLD MODEL
-const URL = "https://teachablemachine.withgoogle.com/models/CIwB69uK/";
+
+//const URL = "https://teachablemachine.withgoogle.com/models/vF-sPGy3/";     // OLD MODEL
+const URL = "https://teachablemachine.withgoogle.com/models/CIwB69uK/";     // MODEL WITH BATTERIES
+
 
 let model, webcam, labelContainer, maxPredictions;
-let predictionArray = [[], [], [], []];
+let predictionArray = [[], [], [], [], []];
 let recording = false;
 
 let confidenceBars = document.getElementsByClassName('confidencebar');
 
 function classify(){
     recording = true;
-    predictionArray = [[], [], [], []];
+    predictionArray = [[], [], [], [], []];
 
     setTimeout(()=>{
         recording = false;
-        let finalPredictions = [0, 0, 0, 0]
+        let finalPredictions = [0, 0, 0, 0, 0]
 
         for(let i = 0; i < predictionArray.length; i++){
             for(let j = 0; j < predictionArray[i].length; j++){
@@ -121,8 +123,10 @@ async function predict() {
     let confidence = parseFloat(prediction[i].probability.toFixed(2));
     let newWidth = Math.max(confidence*400, 70)
 
-    confidenceBars[i].style.width = newWidth+"px";
-
+    if(i !== 4){
+      confidenceBars[i].style.width = newWidth+"px";
+    }
+    
     if(recording){
         predictionArray[i].push(parseFloat(prediction[i].probability.toFixed(2)));
     }
@@ -131,8 +135,19 @@ async function predict() {
 
 function batteriesDetected(){
   let oldDisplay = document.getElementById("trashbins").style.display;
-  document.getElementById('address').innerHTML='ECOPUNTO, <br> Piazza Molino Nuovo, <br> 6900 Lugano'
-  document.getElementById('address').innerHTML='ECOPUNTO, <br> Via Basilea, <br> 6900 Lugano'
+
+  let locationselect = document.getElementById("locationselect");
+  let location = locationselect.value;
+
+  console.log(location)
+
+  if(location.includes("SBB")){
+    document.getElementById('address').innerHTML='ECOPUNTO, <br> Via Basilea, <br> 6900 Lugano';
+    document.getElementById('qrcodeimg').src = "./../img/QRStation.png";
+  } else {
+    document.getElementById('address').innerHTML='ECOPUNTO, <br> Piazza Molino Nuovo, <br> 6900 Lugano';
+    document.getElementById('qrcodeimg').src = "./../img/QRUSI.png";
+  }
   document.getElementById("trashbins").style.display = "none";
   document.getElementById("indications").style.display = "grid";
   
