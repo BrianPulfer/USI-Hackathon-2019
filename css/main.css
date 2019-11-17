@@ -1,8 +1,19 @@
+:root {
+    --r_color: rgba(128,128,128,0.8);
+    --p_color: rgb(130,180,200,0.8);
+    --a_color: rgba(0,128,0,0.8);
+    --c_color:rgba(200,200,0,0.8); 
+  }
+
+
 body{
     font-family: Moon;
-    background: url(/img/background4.png);
-    
+    color: white;
+    background: url(/img/backround4.png) no-repeat;
+    background-size: 120% ;
 }
+
+
 
 
 body::after {
@@ -19,14 +30,19 @@ body::after {
 /* General UX Improvements, Just Cosmetic */
 
 #description{
-    width: 350px;
+    width: 400px;
     display: block;
     margin: auto;
+    color: black;
 }
 
 #description h1{
     text-decoration: underline;
     padding: 5px;
+}
+
+#description h5{
+    text-align: justify;
 }
 
 #classifybutton{
@@ -36,10 +52,11 @@ body::after {
     padding: 20px;
     margin-bottom: 20px;
     font-size: 24px;
+    border-radius: 10000px;
 }
 
 #classifybutton:hover{
-    border: 2px white solid;
+    border: 1px white solid;
     background: rgba(0,0,0,0.2);
     color: white;
     cursor: pointer;
@@ -48,13 +65,18 @@ body::after {
 #trashbins{
     display: block;
     margin:auto;
+    position: absolute;
+    bottom: 10px;
+    right: 160px;
+    
+    /* 
     margin-left: 200px;
-    margin-top: 280px;
+    margin-top: 280px; */
 }
 
 #trashbins .bin{
     width: 150px;
-    height: 260px;
+    height: 320px;
     float: left;
     border: 3px solid rgba(0,0,0,0.8);
     border-top: none;
@@ -85,20 +107,24 @@ img.bintoppic{
 
 }
 
+
+/* .bin:hover .bintop .bintoppic{
+    animation: opening 2s ;
+} */
 #trashbins #rifiuti{
-    background-color: rgba(128,128,128,0.4);
+    background-color: var(--r_color);
 }
 
 #trashbins #pet{
-    background-color: rgb(173,216,230,0.5);
+    background-color: var(--p_color);
 }
 
 #trashbins #alu{
-    background-color: rgba(0,128,0,0.6);
+    background-color: var(--a_color);
 }
 
 #trashbins #carta{
-    background-color: rgba(255,255,0,0.7);
+    background-color: var(--c_color);
 }
 
 .openingbin{
@@ -109,6 +135,19 @@ img.bintoppic{
     animation: closing 2s forwards;
 }
 
+.flashingred{
+    animation: flashred 1s infinite;
+}
+
+@keyframes flashred{
+    0%{
+        color: black;
+    }
+
+    100% {
+        color: red;
+    }
+}
 
 /*Confidence bars related styles*/
 .confidencebar{
@@ -130,19 +169,19 @@ img.bintoppic{
 }
 
 #rcb{
-    background-color: grey;
+    background-color: var(--r_color);
 }
 
 #pcb{
-    background-color: lightblue;
+    background-color: var(--p_color);
 }
 
 #acb{
-    background-color: green;
+    background-color: var(--a_color);
 }
 
 #ccb{
-    background-color: yellow;
+    background-color: var(--c_color);
 }
 
 @keyframes opening{
@@ -194,15 +233,18 @@ img.bintoppic{
 
 .fa-3x{
     margin-top: 40px;
+    border: 3px solid white;
+    padding: 20px;
+    border-radius: 500px;
 }
 
 #locations select{
     display: block;
-    width: 300px;
+    width: 180px;
     position: absolute ;
     margin: auto;
     right: 10px;
-    bottom: 10px;
+    top: 10px;
     border: black;
 }
 
